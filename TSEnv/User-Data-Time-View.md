@@ -1,4 +1,4 @@
-# User, Data, View
+# User, Data, Time, View
 
 - System
   - User
@@ -11,6 +11,8 @@
     - Binding
 
 ```
-User -> View
-Data -> View
+User -> View	:	UV
+Data -> View	:	DV
+Time -> View	:	TV
 ```
+
