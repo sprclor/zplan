@@ -44,8 +44,8 @@ Struct Card [ c:& ] ( ) {
                     }
                 }
                 badge {
-                    @for icon in me.badges {
-                        Icon[icon]
+                    @for badge in me.badges {
+                        Icon(badge.ID)
                     }
                 }
             }
@@ -59,7 +59,7 @@ Struct Card [ c:& ] ( ) {
     back {
     	@{ isBrand = !isEmpty( me.brand ) }
     	header {
-            back:Icon[back]
+            back:Icon( 'back' )
             optionSct {
                 tx #i18n[.shop]
                 @if isBrand {
@@ -68,7 +68,7 @@ Struct Card [ c:& ] ( ) {
             }
             quickOpr {
                 @for opr in user.getQuickOperation {
-                    ImgTx[ icon:opr.& tx:opr.& ]()
+                    ImgTx( opr.img opr.tx )
                 }
             }
     	}
@@ -82,11 +82,11 @@ Struct Card [ c:& ] ( ) {
                     presistence { #shop.presistenceTime }
                     status {
                         Icon[ shop.status ]
-                        tx { #i18n[ shop.statusj ] }
+                        tx { #i18n[ shop.status ] }
                     }
                 }
                 @for q in shop.qlcs {
-                    Icon[ q. ]
+                    Icon[ q.icon ]
                 }
         	}
         	foreground {
