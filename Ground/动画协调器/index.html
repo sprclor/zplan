@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      @keyframes ani {
+        0% {
+          transform: translate(-100px, 0);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        animation: ani 0.5s;
+        background-color: red;
+        margin: 2rem;
+      }
+    </style>
+    <script>
+      addEventListener("load", e => {
+        setTimeout(() => {
+          let body = document.querySelector("body");
+          let d = document.createElement("div");
+          d.classList.add("box");
+          body.appendChild(d);
+        }, 1000);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

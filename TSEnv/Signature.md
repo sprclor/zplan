@@ -11,3 +11,4 @@
 > UI Instance = Scope + Status
 
 Scope相当于模板，Status就是实例属性
+

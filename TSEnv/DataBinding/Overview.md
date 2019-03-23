@@ -34,7 +34,7 @@ Struct Card [ c:& ] ( ) {
         	category:Icon( me.category )
             quickOpr {
                 @for opr in user.getQuickOperation {
-                    ImgTx( icon:opr.icon tx:opr.tx )
+                    ImgTx( icon:opr.icon opr.tx )
                 }
             }
             venter {
