@@ -8,7 +8,8 @@
   - View
     - Animation
     - Layout
-    - Binding
+    - DataBinding
+    - Render
 
 ```
 User -> View	:	UV

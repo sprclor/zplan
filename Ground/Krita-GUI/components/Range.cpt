@@ -1,0 +1,82 @@
+/ 范围输入器
+    style.type.step:
+        + side     步进器在侧边
+        + between  步进器在两边
+        + no       没有步进器
+/
+
+import ./StepCount
+
+like StepCount
+
+struct ( ) {
+    progress {}
+    label { - tx }
+
+    @if style.type.step[between] {
+        addTag( outField | step() 'step' )
+    }
+    @if style.type.step[side] {
+        step()
+    }
+}
+
+style {
+    @{
+        type {
+            step {
+                side
+                betweens
+                no
+            }
+        }
+    }
+    
+    layout flex( row )
+
+    > progress {
+        width ( ratio * 100 )%
+
+        @if style.type.step[between] {
+            order 1
+        }
+    }
+    .step {
+        &prev {
+            order 0
+        }
+        &next {
+            order 2
+        }
+    }
+
+    > step {
+        layout flex( col )
+        > * {
+            flex( grow: 1 )
+        }
+    }
+}
+
+type {
+    value float(0 1)
+    tx template
+}
+
+fn get () {
+    return ratio
+}
+
+user {
+    $mousedown ( e ) {
+        { which } := e
+        if which == 1 {
+            calc := e => $ratio = e.layerX / offsetWidth
+            calc( e )
+            handler := mousemove { calc }                   # let handler = calc; addEventListener("mousemove", calc);
+            mouseup ( e ) {
+                release( handler @ )                        # @引用当前函数; removeListener("mousemove",handler), removeListener("mouseup",arguments.callee)
+            }
+        }
+    }
+}
