@@ -1,9 +1,0 @@
-import ./StepCount, ./Input
-
-struct () {
-    tx {
-        - $value
-    }
-    next()
-    prev()
-}

@@ -11,7 +11,7 @@ like StepCount
 
 struct ( ) {
     progress {}
-    label { - tx }
+    label { # tx }
 
     @if style.type.step[between] {
         addTag( outField | step() 'step' )
@@ -34,14 +34,14 @@ style {
     
     layout flex( row )
 
-    > progress {
+    & > progress {
         width ( ratio * 100 )%
 
         @if style.type.step[between] {
             order 1
         }
     }
-    .step {
+    & .step {
         &prev {
             order 0
         }
@@ -50,9 +50,9 @@ style {
         }
     }
 
-    > step {
+    & > step {
         layout flex( col )
-        > * {
+        & > * {
             flex( grow: 1 )
         }
     }

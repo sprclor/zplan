@@ -1,0 +1,5 @@
+import ./Input
+
+type {
+    value str   // 覆盖定义
+}

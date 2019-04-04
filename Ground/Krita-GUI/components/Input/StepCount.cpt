@@ -4,8 +4,8 @@ type {
 }
 
 struct ( ) {
-    left { - + }
-    right { - - }
+    left { # + }
+    right { # - }
 }
 
 fn left => value += step

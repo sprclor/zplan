@@ -1,0 +1,12 @@
+import like ./StepCount, ./Input
+
+struct () {
+    tx {
+        # $value
+    }
+    (outField | StepCount) (dom) => {
+        dom() {
+            
+        }
+    }
+}
