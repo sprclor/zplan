@@ -1,32 +1,32 @@
 type {
-    value float
-    step float
+	value float
+	step float
 }
 
 struct ( ) {
-    left { # + }
-    right { # - }
+	left { # + }
+	right { # - }
 }
 
 fn left => value += step
 fn right => value -= step
 
 user {
-    left.click { left }
-    right.click { right }
+	left.click { left }
+	right.click { right }
 }
 
 style () {
-    layout flex( col )
+	layout flex( col )
 
-    > * {
-        &:active {
-            transform scale( 1.5 )
+	> * {
+		&:active {
+			transform scale( 1.5 )
 
-            &:- {
-                transition duration( .1s )
-            }
-        }
-    }
+			&:- {
+				transition duration( .1s )
+			}
+		}
+	}
 
 }

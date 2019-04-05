@@ -1,7 +1,25 @@
+/
+	这是一个接受用户输入的基础组件
+	它监听focus和blur事件来维持focused状态
+/
+
 type {
-    value float
+	value float
 }
 
 struct () {
-    # $value
+	# $value
+}
+
+state {
+	focused
+}
+
+user {
+	$focus() {
+		state.add(focused)
+	}
+	$blur() {
+		state.rm(focused)
+	}
 }

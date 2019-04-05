@@ -1,5 +1,5 @@
 import ./Input
 
 type {
-    value str   // 覆盖定义
+	value str	// 覆盖定义
 }
