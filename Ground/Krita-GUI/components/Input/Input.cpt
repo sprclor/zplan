@@ -3,6 +3,8 @@
 	它监听focus和blur事件来维持focused状态
 /
 
+component Input/Input
+
 type {
 	value float
 }
