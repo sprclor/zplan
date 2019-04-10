@@ -1,0 +1,84 @@
+<script src="data.js"></script>
+<script>
+	let { Input } = source;
+
+	let space = {
+		" ": 1,
+		"\t": 1
+	};
+
+	let keyword = {
+		import: 1,
+		like: 1,
+		type: 1,
+		struct: 1,
+		state: 1,
+		user: 1
+	};
+
+	let bound = {
+		"{": 1,
+		"}": 1,
+		"(": 1,
+		")": 1,
+		"[": 1,
+		"]": 1,
+		"<": 1,
+		">": 1,
+		"/": 1,
+		'"': 1,
+		"'": 1
+	};
+
+	let other = {
+		"\n": 1,
+		"|": 1,
+		"&": 1,
+		"@": 1,
+		"#": 1,
+		".": 1,
+		$: 1,
+		"-": 1,
+		"+": 1,
+		"*": 1
+	};
+
+	let isSpace = c => !!space[c];
+	let isBound = c => !!bound[c];
+	let isContinuous = c => c === ",";
+	let isMap = c => c === ":";
+	let isOther = c => !!other[c];
+	let isSepartor = c => {
+		return (
+			isSpace(c) ||
+			isBound(c) ||
+			isContinuous(c) ||
+			isMap(c) ||
+			isOther(c)
+		);
+	};
+
+	let blocks = [];
+
+	let lastC = "";
+	let lastK = "";
+	let key = "";
+
+	// single character mode
+	for (let i = 0; i < Input.length; i++) {
+		let c = Input[i];
+		if (!isSepartor(c)) {
+			key += c;
+		} else {
+			if (key) {
+				blocks.push(key);
+			}
+			if (!isSpace(c)) {
+				key = c;
+				blocks.push(key);
+			}
+			key = "";
+		}
+	}
+	console.log(blocks);
+</script>

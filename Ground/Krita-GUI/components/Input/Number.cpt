@@ -1,13 +1,18 @@
-import like ./StepCount, ./Input
+import like (
+	./StepCount
+	./Input
+)
 
-- addTag = ( s []Struct, tag str) => for _ in s { _.tag.add( tag ) }
 
-struct () {
+
+- addTag = ( s: []Struct tag: str ) => for _ in s { _.tag.add( tag ) }
+
+struct (        ) {
 	tx {
 		# $value
 	}
 	@if sytle.type[Between] {
-		addTag( StepCount.Root, 'step' )
+		addTag( StepCount.Root 'step' )
 	}
 	@if style.type[Side] {
 		StepCount()
@@ -15,10 +20,11 @@ struct () {
 }
 
 style {
-	@{
+	@ {
 		type [ Between Side No ]	// 预置风格
 		step {
 			autoHidden bool
+			hiddenTimeout Time
 		}
 	}
 	
@@ -26,8 +32,11 @@ style {
 	flex direction: row
 
 	@if step.autoHidden {
-		: hover {
-
+		& > StepCount[+hover +focus] {
+			opacity 1
+		}
+		& > StepCount[-hovered -focus] {
+			opacity 0 delay @step.hiddenTimeout
 		}
 	}
 }
