@@ -3,11 +3,9 @@ import like (
 	./Input
 )
 
-
-
 - addTag = ( s: []Struct tag: str ) => for _ in s { _.tag.add( tag ) }
 
-struct (        ) {
+struct ( ) {
 	tx {
 		# $value
 	}

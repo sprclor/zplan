@@ -1,25 +1,25 @@
 /
 	这是一个接受用户输入的基础组件
-	它监听focus和blur事件来维持focused状态
+	它监听focus和blur事件来维持actived状态
 /
 
 type {
 	value float
 }
 
-struct () {
+struct ( ) {
 	# $value
 }
 
 state {
-	focused
+	actived
 }
 
 user {
-	$focus() {
-		state.add(focused)
+	$focus( ) {
+		state.add(actived)
 	}
-	$blur() {
-		state.rm(focused)
+	$blur( ) {
+		state.rm(actived)
 	}
 }

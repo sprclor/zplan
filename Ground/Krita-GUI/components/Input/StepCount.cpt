@@ -20,7 +20,7 @@ style () {
 	layout flex( col )
 
 	> * {
-		&:active {
+		&[actived] {
 			transform scale( 1.5 )
 
 			&:- {
