@@ -3,8 +3,8 @@ Scope由三个部分组成
 + GUI
 + Data
 
-## Modal
-Modal是Scope内在差异性的来源
+## Model
+Model是Scope内在差异性的来源
 
 ## GUI
 GUI是Scope的表现
