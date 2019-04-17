@@ -14,10 +14,10 @@ struct ( ) {
 	label { # tx }
 
 	@if style.type.step[between] {
-		addTag( outField | step() 'step' )
+		addTag( outField | StepCount() 'step' )
 	}
 	@if style.type.step[side] {
-		step()
+		StepCount()
 	}
 }
 

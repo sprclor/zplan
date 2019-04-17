@@ -1,0 +1,45 @@
+import like (
+	./StepCount
+	./Input
+)
+
+type {
+	items []Struct
+	capacity uint
+}
+
+struct {
+	wrap {
+		@for item, idx in items {
+			item()
+		}
+	}
+	indicator {
+		@for item in items {
+			item() [ if idx == value .actived ]
+		}
+	}
+	nav {
+		left
+		right
+	}
+}
+
+bind {
+	[ value ] items() {
+		$( wrap>item ).rmTag( 'actived' )
+		$( wrap>item )[ value ].addTag( 'actived' )
+		for i := 0; i < capacity; i++ {
+			$(wrap>item)[ value + capacity ].addTag( 'seen' )
+		}
+		start := value
+		end := value + capacity
+		seenSec := Range{ start end }
+		partSec := []uint{ start - 1 end + 1 }
+
+		$( wrap>item:!$section ).rmTag( 'seen' )
+		$( wrap>item:$section ).addTag( 'seen' )
+		$( wrap>item:!nth($partSec) ).rmTag( 'partical' )
+		$( wrap>item:nth($partSec) ).addTag( 'partical' )
+	}
+}
