@@ -6,6 +6,16 @@ import like (
 type {
 	items []Struct
 	capacity uint
+	sameItemSize = true
+}
+
+style {
+	@ {
+		baseline { start center end } / Distance
+	}
+	& > wrap {
+		
+	}
 }
 
 struct {
@@ -25,8 +35,12 @@ struct {
 	}
 }
 
+- fn qI( s: struct key: str axis: main/cross ) style.Distance {
+
+}
+
 bind {
-	[ value ] items() {
+	[ value ] {
 		$( wrap>item ).rmTag( 'actived' )
 		$( wrap>item )[ value ].addTag( 'actived' )
 		for i := 0; i < capacity; i++ {
@@ -41,5 +55,37 @@ bind {
 		$( wrap>item:$section ).addTag( 'seen' )
 		$( wrap>item:!nth($partSec) ).rmTag( 'partical' )
 		$( wrap>item:nth($partSec) ).addTag( 'partical' )
+	}
+	[ capacity ] {
+		cap := 0
+		if sameItemSize {
+			cap = uint | qI( $(&) size ) / qI( $(&>wrap) size )
+		} else {
+			switch style.baseline {
+				case start {
+					viewMSize := qI( $(&>wrap) size )
+					size := 0
+					for i := 0; i < len(sec); i++ {
+						mS := qI( $(&>wrap>*:nth($i)) size )
+						size += mS
+						if( size > viewMSize ){
+							break
+						} else {
+							cap++
+						}
+					}
+				}
+				case center {
+
+				}
+				case end {
+
+				}
+				case {
+					
+				}
+			}
+		}
+		return cap;
 	}
 }
