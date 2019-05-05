@@ -3,23 +3,25 @@
 	它监听focus和blur事件来维持actived状态
 /
 
-type {
-	value float
-}
+import (
+	gui/sys
+)
 
-struct ( ) {
-	# $value
-}
+like sys.input
 
 state {
 	actived
 }
 
+struct {
+	# $value
+}
+
 user {
-	$focus( ) {
+	sys.focus( ) {
 		state.add(actived)
 	}
-	$blur( ) {
+	sys.blur( ) {
 		state.rm(actived)
 	}
 }
