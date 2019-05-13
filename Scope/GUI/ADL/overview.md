@@ -42,12 +42,6 @@ struct {
 }
 
 attr {
-    () {
-        gap {
-
-        }
-    }
-
     &:wrap {
         layout flex
         flex :$dir :$align
@@ -79,3 +73,9 @@ attr {
 }
 
 ```
+
+#### 好处
+
++ GUI实时更新
++ 完全编程控制
+

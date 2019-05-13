@@ -1,6 +1,6 @@
 ```
 type Mask like Modifier {
-    source, destination : Images
+    source, destination Images
 }
 ```
 
