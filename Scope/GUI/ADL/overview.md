@@ -23,10 +23,9 @@ type {
     align axis      FlexAlign
     gap axis        Distance
     indicator {
-        & dir
+        :$dir
         gap axis    Distance
         size axis   Distance
-        
     }
 }
 
@@ -34,7 +33,7 @@ type {
 
 struct {
     :wrap virtual {
-        >* () // unnamed slot
+        > () // unnamed slot
     }
     :indicator {
 
