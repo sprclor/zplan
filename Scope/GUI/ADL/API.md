@@ -2,13 +2,18 @@
 
 ### Layout
 
-#### BoxModel
+### BoxModel
 
-###### bound
+#### border
 
-###### border
+#### space
 
-###### space
+###### padding
+
+###### margin
 
 ### Appearance
 
+#### background
+
+#### Render & Compositing
