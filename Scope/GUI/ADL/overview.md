@@ -42,8 +42,7 @@ struct {
 
 attr {
     &:wrap {
-        layout flex
-        flex :$dir :$align
+        layout flex :$dir :$align
 
         @ autoMainSize() &>* {
             width auto;
@@ -59,7 +58,6 @@ attr {
                 flex align.main: stretch
                 @autoMainSize
             none:
-
         }
 
         &>* {
