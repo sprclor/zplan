@@ -1,13 +1,17 @@
 ## R
 
-Structed Resource describe. 
+Structed Resource Describe. 
 
 ```
 index {
     banner banner.jpg
     carousels [
-        jeciel3.jpg
-        helloworld.png
+        fruits.jpg {
+            size 400 * 300
+        }
+        helloworld.png {
+            size 675 * 40
+        }
         sjd3.jpg
     ]
 }
