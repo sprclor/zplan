@@ -6,12 +6,8 @@ Structed Resource Describe.
 index {
     banner banner.jpg
     carousels [
-        fruits.jpg {
-            size 400 * 300
-        }
-        helloworld.png {
-            size 675 * 40
-        }
+        fruits.jpg
+        helloworld.png
         sjd3.jpg
     ]
 }
