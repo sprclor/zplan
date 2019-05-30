@@ -2,10 +2,8 @@
 
 ```
 struct {
-	html {
-		head {}
-		body {}
-	}
+    head {}
+    body {}
 }
 ```
 

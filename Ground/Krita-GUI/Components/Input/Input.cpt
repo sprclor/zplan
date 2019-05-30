@@ -1,0 +1,27 @@
+/
+	这是一个接受用户输入的基础组件
+	它监听focus和blur事件来维持actived状态
+/
+
+import (
+	gui/sys
+)
+
+like sys.input
+
+state {
+	actived
+}
+
+struct {
+	# $value
+}
+
+user {
+	sys.focus( ) {
+		state.add(actived)
+	}
+	sys.blur( ) {
+		state.rm(actived)
+	}
+}
