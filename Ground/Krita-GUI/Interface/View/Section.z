@@ -1,0 +1,17 @@
+pkg View
+
+type <T> {
+	summary Summary<T>
+
+	sleptCount uint
+	activedCount uint
+
+	getSlept() []<T>
+	getActived() []<T>
+}
+
+bind {
+	sleptCount {
+		return 
+	}
+}

@@ -1,0 +1,22 @@
+like Moder( only / multi )
+
+type {
+	placeHolder str
+	activeCountLimit Range
+	maxShowCount uint(>0)
+	items Option / []<T> // 如果是[]<T>，将会默认使用元素的toStr()作为其对应的标签
+}
+
+type Range num / []uint(>0)
+
+type Option {
+	{ key str : opt str / uion( <T> bool ) } }
+}
+
+status {
+	fold bool
+
+	count uint
+	activeCount uint
+	actived []str
+}
