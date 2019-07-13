@@ -1,5 +1,5 @@
 ```
-type Root {
+type Select {
 	struct {
 		< picker: ViewSlc
 	}
@@ -9,7 +9,7 @@ type Root {
 ```
 Select {
 	> picker: ViewSec
-	labels = ["Jumir","Guytp","Kurmg"]
+	labels = [: Jumir Guytp Kurmg ]
 	{
 	
 	}
