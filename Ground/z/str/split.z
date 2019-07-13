@@ -1,0 +1,13 @@
+( : str symbol: str ) rst: []str {
+
+	str word
+
+	for $0 ch {
+		if ch == symbol {
+			rst.push(word)
+			word = ""
+		}else{
+			word += ch
+		}
+	}
+}

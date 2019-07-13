@@ -1,0 +1,10 @@
++ concat
++ split
++ replace
++ slice
++ substr
++ indexOf
++ trim
++ match
++ toLowerCase
++ toUpperCase

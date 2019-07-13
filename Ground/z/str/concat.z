@@ -1,0 +1,7 @@
+( []str ) str {
+	str rst
+	for $0 s {
+		str += s
+	}
+	return rst
+}

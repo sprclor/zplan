@@ -1,6 +1,6 @@
 pkg View
 
-type <T> {
+type <[]T> {
 	summary Summary<T>
 
 	sleptCount uint

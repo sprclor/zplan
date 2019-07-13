@@ -1,0 +1,35 @@
+use ../ev
+
+type like Ev {
+	firstChild Node
+	lastChild
+	nextSibling
+	prevSibling
+
+	name Str
+	childNodes []Node
+
+	fn insertBefore()
+
+	fn appendChild()
+
+	fn removeChild()
+
+	fn replaceChild()
+
+	fn cloneNode()
+
+	fn compareDocumentPosition()
+
+	fn contains()
+
+	fn getRootNode()
+
+	fn hasChildNodes()
+
+	fn isEqualNode()
+
+	fn isSameNode()
+
+	fn normalize()
+}

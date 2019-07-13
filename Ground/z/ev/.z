@@ -1,0 +1,17 @@
+type {
+	- bool isDynamic
+
+	( isDynamic ) {
+
+	}
+
+	fn expand( []str )
+
+	fn emit( eType: str )
+
+	fn on( eType: str ) any
+
+	fn on( eType: str any )
+
+	fn rm( id: any )
+}
