@@ -16,7 +16,6 @@ type People {
 }
 
 People p
-People
 println(p.name)
 ```
 

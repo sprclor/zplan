@@ -9,7 +9,7 @@ type Root {
 ```
 type Select {
 	struct {
-        > picker: ViewSec labels: ["Jumir","Guytp","Kurmg"] {
+        > picker: ViewSec labels = [$ Jumir Guytp Kurmg] {
 
         }
 	}
