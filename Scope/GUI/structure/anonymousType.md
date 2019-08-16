@@ -11,3 +11,11 @@ iTx := InputTx{"Jackie"}
 iTx.str = "Tom"
 ```
 
+```
+struct InputTx {
+	struct People {
+	
+	}
+}
+```
+
