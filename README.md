@@ -13,3 +13,4 @@ The Distributed Application Architecture.
 
 + Make infrastructure everywhere in the human footprint.
 + Computing model is hardware independent.
+
