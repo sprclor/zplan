@@ -7,7 +7,7 @@ fn hello() {
 ###### 匿名参数与`$<N>`
 
 ```
-fn doSomething( uint []str ) {
+fn doSomething( uint: []str ) {
 	println($0)
 }
 doSomething( 1 [$ sdf sdfs sd sdf ] )
@@ -17,11 +17,12 @@ doSomething( 1 [$ sdf sdfs sd sdf ] )
 ###### 匿名函数与`$`
 
 ````
-fn (n uint){
+let sum = fn ( n: uint ){
 	if n != 0 {
-		$(\ $(n-2) n - 1 )
+		$(\ $(n-1) )
 	}
     println(n)
 }
+sum(5)
 ````
 
