@@ -10,7 +10,7 @@ fn hello() {
 fn doSomething( uint []str ) {
 	println($0)
 }
-doSomething( 1 [$ sdf sdfs sd sdf ] )
+doSomething( 1 [/ sdf sdfs sd sdf ] )
 // 1
 ```
 
