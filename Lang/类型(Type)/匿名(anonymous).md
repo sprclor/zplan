@@ -1,7 +1,7 @@
 ```
 type {}
-let a = type { name: uint }
+let a = type { name: str }
 
-a(: 'Jackie' ) // { name: "Jackie" }
+a{ name: 'Jackie' } // { name: "Jackie" }
 ```
 
