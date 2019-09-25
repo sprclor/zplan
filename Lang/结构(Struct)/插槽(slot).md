@@ -1,16 +1,7 @@
 ```
-type Video { }
-struct Video { }
-```
-
-```
-type Video {
-    struct { }
-}
-```
-
-```
-type Video {
-    { }
+type Layer {
+    struct {
+        <
+    }
 }
 ```
