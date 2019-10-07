@@ -14,12 +14,12 @@ doSomething( 1 [/ sdf sdfs sd sdf ] )
 // 1
 ```
 
-###### 匿名函数与`$`
+###### 匿名函数与`&`
 
 ````
-let sum = fn ( n: uint ){
+let sum = fn ( n: uint ) uint {
 	if n != 0 {
-		$(\ $(n-1) )
+		&( &(n-1) )
 	}
     println(n)
 }
