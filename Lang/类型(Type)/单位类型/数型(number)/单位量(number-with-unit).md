@@ -1,5 +1,20 @@
-###### 单位簇
+## 单位
 
+### 单位换算
+
+### 量纲限制
+```
+
+```
+
+### 定义连接
+```
+unit Volume = Distance ^ 3 {
+    
+}
+```
+
+### 绝对单位
 ```
 unit Distance {
 	km 	1e3		// 千米
@@ -23,21 +38,6 @@ unit Area = Distance * Distance {
 	pm2	pm
 	fm2 fm
 }
-
-unit Volume = Distance ^ 3 {
-	Distance + 3
-}
-
-let a = 1.423km
-type.( a )			// Distance
-type.( a * a )		// Area
-m.( a )				// 1423
-fm.( a )			// 1,423,000,000,000,000,000
-
-fn getArea( d1, d2: Distance ) Area {
-	return d1 * d2
-}
-
-getArea( 1.2cm 2.4m ) // 0.0288m2
 ```
 
+### 相对单位
