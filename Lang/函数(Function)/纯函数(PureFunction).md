@@ -22,6 +22,6 @@ pure kick( target User ) number {
 pure decrementHealth( u,target User ) {
 	target.hp -= u.ap
 }
-pure isSameTeam = player,target User => player.team == target.team
+pure isSameTeam = ( ( player target User ) ) => player.team == target.team
 ```
 

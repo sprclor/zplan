@@ -1,6 +1,6 @@
 ```
 fn hello() {
-	print(/ Hi! )
+	print(\ Hi! )
 }
 ```
 
@@ -10,7 +10,7 @@ type People {
 }
 
 fn People.hello() {
-	print(/ Hi\, I'm ${&.name}!)
+	print(\ Hi\, I'm ${&.name}!)
 }
 ```
 
