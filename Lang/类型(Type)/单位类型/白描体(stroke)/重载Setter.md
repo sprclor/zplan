@@ -27,7 +27,12 @@ fn Border - Boundry {
             }
         }
     }
-	( x, y  BDefType)  {
+    ( width Distance, style &.Style, color Color ) {
+    	$( me.*.width ) = width
+    	$( me.*.style ) = style
+    	$( me.*.color ) = color
+    }
+	( x, y BDefType)  {
 		me.left = x
 		me.right = x
 		me.top = y
@@ -47,13 +52,33 @@ fn Border - Boundry {
 	}
 }
 
-Border{ }
+// Defintion Pattern
+Border{ { 1px solid red } { 1px solid red } { 1px solid red } { 1px solid red } }
+
+// Defintion-Keyed Pattern
+Border{ { 1px solid red } top: { 3px dotted red } }
+
+// Constructor Pattern
+Border( Border.Def{ 1px solid red } )
+Border({ 1px solid red })
+Border( 2px )
+Border( 2px 4px )
+Border( 2px 4px 6px )
+Border( 2px 4px 6px 9px )
+Border( solid )
+Border( solid dotted )
+Border( solid dotted dotted )
+Border( solid dotted dotted solid )
+Border( red )
+Border( red blue )
+Border( purple gray blue )
+Border( red #f56 blue purple )
+
 border := Border{}
-
-border = (Border.Def{ 1px solid red })
+// Constructor, Anonymous Literal
+border = ( Border.Def{ 1px solid red } )
 border = ({ 1px solid red })
-border = { 1px solid red }
-
+border = ( 1px solid red )
 border = ( 2px )
 border = ( 2px 3px )
 border = ( solid dotted )
