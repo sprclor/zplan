@@ -37,7 +37,7 @@ type Border - Boundry {
 type SizingBox {
 	padding - Boundry Distance
 	margin
-	bound	- Rectangle *
+	bound	- Rectangle Distance
 }
 
 stroke AxisX { left right center }
@@ -90,16 +90,23 @@ type Border.Def {
 fn Border - Boundry {
 	BDefType := Distance | &.Style | Color
 
-	( all &.Def )  {
-		for Boundry as k {
-			me[k] = all
-		}
+	( all &.Def ) {
+        for Boundry as k {
+        	me[k] = val
+        }
+    }
+    ( all BDefType ) {
+		for all as val {
+            for Boundry as k {
+                me[k] = val
+            }
+        }
     }
 	( x, y  BDefType)  {
 		me.left = x
 		me.right = x
-		me.top = x
-		me.bottom = x
+		me.top = y
+		me.bottom = y
     }
 	( x, top, bottom BDefType )  {
 		me.left = x
@@ -117,8 +124,13 @@ fn Border - Boundry {
 
 Border{ }
 border := Border{}
+
+border = (Border.Def{ 1px solid red })
+border = ({ 1px solid red })
 border = { 1px solid red }
+
 border = ( 2px )
+border = ( 2px 3px )
 border = ( solid dotted )
 ```
 
