@@ -1,0 +1,1 @@
+URL不只是WebApp的专属，桌面应用和移动App完全可以使用，但为什么WebApp的URL作用那么明显？
