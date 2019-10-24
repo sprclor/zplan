@@ -38,12 +38,10 @@ type UserViewSct like ViewSct {
 
 UserViewSct uvs = { }
 Select select = {
-	sct:uvs
+	uvs > sct
 }
 
 ```
-
-
 
 #### 备用内容
 
