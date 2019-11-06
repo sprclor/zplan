@@ -1,0 +1,78 @@
+
+fn Todo() type {
+    type {
+		- key id { 1000 }
+        completed map[ id: bool ] {
+			false,
+		}
+        list map[ id: str ] {
+			buy\ somthing
+		}
+    }
+
+    fn* deboundce = () => { }
+    fn* filter = list.values.filter
+
+    stroke me.type *Frame {
+        :Input @input = deboundce | (({ value })* => value ) | filter
+        list {
+            @for list as id, tx {
+                item {
+                    :Checkbox() completed[ id ] {}
+                    :Tx tx
+                }
+            }
+        }
+    }
+
+	$ root = ( me.stroke )
+
+	root := $( me. stroke )
+
+	root {
+
+	}
+
+	$( me.stroke ) {
+
+	}
+
+    type.style := Frame.Style {
+		@ root := ($me.stroke $ )
+		root {
+			margin 2rem
+			padding 1rem 2rem
+		}
+		$( root >  ) {
+
+		}
+    }
+}
+
+stroke Frame.Style {
+	stor = stroke {
+		margin Margin
+		padding Padding
+	}
+}
+
+type Todo {
+    checked	map[ str: bool ]
+    list	map[ str: str ]
+}
+
+type Person {
+    name str
+}
+
+fn Person.run() {
+
+}
+
+fn run() {
+    me.name
+}
+
+jackie := Person{}
+
+(@run jackie )
