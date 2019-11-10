@@ -1,9 +1,13 @@
 ```
-process fn resolveUserData() {
+async* resolveUserData() {
 	response := http.get(...)
+	
 	return response
 }
 
-*fn resolve
+async {
+	await resolveUserData()
+}
+
 ```
 
