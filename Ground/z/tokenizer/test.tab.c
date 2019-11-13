@@ -74,13 +74,10 @@
 #include <stdio.h>
 
 int yylex (void);
-
-void yyerror (char const *s) {
-  fprintf (stderr, "%s/n", s);
-}
+void yyerror (char const *s);
 
 
-#line 84 "test.tab.c"
+#line 81 "test.tab.c"
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus
@@ -424,8 +421,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    19,    19,    20,    23,    24,    27,    28,    29,    30,
-      31,    33,    35
+       0,    16,    16,    17,    20,    21,    24,    25,    26,    27,
+      28,    30,    32
 };
 #endif
 
@@ -1209,55 +1206,55 @@ yyreduce:
   switch (yyn)
     {
   case 5:
-#line 24 "test.y"
+#line 21 "test.y"
     { printf( "\t%.10g\n", yyvsp[-1] ); }
-#line 1215 "test.tab.c"
+#line 1212 "test.tab.c"
     break;
 
   case 6:
-#line 27 "test.y"
+#line 24 "test.y"
     { yyval = yyvsp[0]; }
-#line 1221 "test.tab.c"
+#line 1218 "test.tab.c"
     break;
 
   case 7:
-#line 28 "test.y"
-    { yyval = yyvsp[-2] + yyvsp[-1]; }
-#line 1227 "test.tab.c"
+#line 25 "test.y"
+    { yyval = yyvsp[-2] + yyvsp[-1]; printf("%d, %d", yyvsp[-2], *yyvsp[-1]); }
+#line 1224 "test.tab.c"
     break;
 
   case 8:
-#line 29 "test.y"
+#line 26 "test.y"
     { yyval = yyvsp[-2] - yyvsp[-1]; }
-#line 1233 "test.tab.c"
+#line 1230 "test.tab.c"
     break;
 
   case 9:
-#line 30 "test.y"
+#line 27 "test.y"
     { yyval = yyvsp[-2] * yyvsp[-1]; }
-#line 1239 "test.tab.c"
+#line 1236 "test.tab.c"
     break;
 
   case 10:
-#line 31 "test.y"
+#line 28 "test.y"
     { yyval = yyvsp[-2] / yyvsp[-1]; }
-#line 1245 "test.tab.c"
+#line 1242 "test.tab.c"
     break;
 
   case 11:
-#line 33 "test.y"
+#line 30 "test.y"
     { yyval = pow( yyvsp[-2], yyvsp[-1] ); }
-#line 1251 "test.tab.c"
+#line 1248 "test.tab.c"
     break;
 
   case 12:
-#line 35 "test.y"
+#line 32 "test.y"
     { yyval = -yyvsp[-1]; }
-#line 1257 "test.tab.c"
+#line 1254 "test.tab.c"
     break;
 
 
-#line 1261 "test.tab.c"
+#line 1258 "test.tab.c"
 
       default: break;
     }
@@ -1489,7 +1486,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 38 "test.y"
+#line 35 "test.y"
 
 
 int yylex (void) {
@@ -1514,6 +1511,10 @@ int yylex (void) {
   /* Return a single char.  */
   /* 返回一个单一字符 */
   return c;
+}
+
+void yyerror (char const *s) {
+  fprintf (stderr, "%s/n", s);
 }
 
 int main (void) {

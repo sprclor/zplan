@@ -5,7 +5,6 @@
 #include <stdio.h>
 
 int yylex (void);
-
 void yyerror (char const *s);
 
 %}
@@ -23,7 +22,7 @@ line: '\n'
 ;
 
 exp:  NUM { $$ = $1; }
-	| exp exp '+' { $$ = $1 + $2; }
+	| exp exp '+' { $$ = $1 + $2; printf("%d, %d", $1, *$2); }
 	| exp exp '-' { $$ = $1 - $2; }
 	| exp exp '*' { $$ = $1 * $2; }
 	| exp exp '/' { $$ = $1 / $2; }
