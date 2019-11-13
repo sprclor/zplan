@@ -3,6 +3,11 @@
 #include <math.h>
 #include <ctype.h>
 #include <stdio.h>
+
+int yylex (void);
+
+void yyerror (char const *s);
+
 %}
 
 %token NUM
@@ -30,13 +35,34 @@ exp:  NUM { $$ = $1; }
 
 %%
 
-yyerror (s)  /* Called by yyparse on error */
-     char *s;
-{
-  printf ("%s\n", s);
+int yylex (void) {
+  int c;
+
+  /* Skip white space.  */
+  /* 处理空白. */
+  while ((c = getchar ()) == ' ' || c == '/t')
+    ;
+  /* Process numbers.  */
+  /* 处理数字 */
+  if (c == '.' || isdigit (c))
+    {
+      ungetc (c, stdin);
+      scanf ("%lf", &yylval);
+      return NUM;
+    }
+  /* Return end-of-input.  */
+  /* 返回输入结束 */
+  if (c == EOF)
+    return 0;
+  /* Return a single char.  */
+  /* 返回一个单一字符 */
+  return c;
 }
 
-main ()
-{
-  yyparse ();
+void yyerror (char const *s) {
+  fprintf (stderr, "%s/n", s);
+}
+
+int main (void) {
+  return yyparse ();
 }

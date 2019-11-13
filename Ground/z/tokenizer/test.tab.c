@@ -73,7 +73,14 @@
 #include <ctype.h>
 #include <stdio.h>
 
-#line 77 "test.tab.c"
+int yylex (void);
+
+void yyerror (char const *s) {
+  fprintf (stderr, "%s/n", s);
+}
+
+
+#line 84 "test.tab.c"
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus
@@ -417,8 +424,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    12,    12,    13,    16,    17,    20,    21,    22,    23,
-      24,    26,    28
+       0,    19,    19,    20,    23,    24,    27,    28,    29,    30,
+      31,    33,    35
 };
 #endif
 
@@ -1202,55 +1209,55 @@ yyreduce:
   switch (yyn)
     {
   case 5:
-#line 17 "test.y"
+#line 24 "test.y"
     { printf( "\t%.10g\n", yyvsp[-1] ); }
-#line 1208 "test.tab.c"
+#line 1215 "test.tab.c"
     break;
 
   case 6:
-#line 20 "test.y"
+#line 27 "test.y"
     { yyval = yyvsp[0]; }
-#line 1214 "test.tab.c"
+#line 1221 "test.tab.c"
     break;
 
   case 7:
-#line 21 "test.y"
+#line 28 "test.y"
     { yyval = yyvsp[-2] + yyvsp[-1]; }
-#line 1220 "test.tab.c"
+#line 1227 "test.tab.c"
     break;
 
   case 8:
-#line 22 "test.y"
+#line 29 "test.y"
     { yyval = yyvsp[-2] - yyvsp[-1]; }
-#line 1226 "test.tab.c"
+#line 1233 "test.tab.c"
     break;
 
   case 9:
-#line 23 "test.y"
+#line 30 "test.y"
     { yyval = yyvsp[-2] * yyvsp[-1]; }
-#line 1232 "test.tab.c"
+#line 1239 "test.tab.c"
     break;
 
   case 10:
-#line 24 "test.y"
+#line 31 "test.y"
     { yyval = yyvsp[-2] / yyvsp[-1]; }
-#line 1238 "test.tab.c"
+#line 1245 "test.tab.c"
     break;
 
   case 11:
-#line 26 "test.y"
+#line 33 "test.y"
     { yyval = pow( yyvsp[-2], yyvsp[-1] ); }
-#line 1244 "test.tab.c"
+#line 1251 "test.tab.c"
     break;
 
   case 12:
-#line 28 "test.y"
+#line 35 "test.y"
     { yyval = -yyvsp[-1]; }
-#line 1250 "test.tab.c"
+#line 1257 "test.tab.c"
     break;
 
 
-#line 1254 "test.tab.c"
+#line 1261 "test.tab.c"
 
       default: break;
     }
@@ -1482,16 +1489,33 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 31 "test.y"
+#line 38 "test.y"
 
 
-yyerror (s)  /* Called by yyparse on error */
-     char *s;
-{
-  printf ("%s\n", s);
+int yylex (void) {
+  int c;
+
+  /* Skip white space.  */
+  /* 处理空白. */
+  while ((c = getchar ()) == ' ' || c == '/t')
+    ;
+  /* Process numbers.  */
+  /* 处理数字 */
+  if (c == '.' || isdigit (c))
+    {
+      ungetc (c, stdin);
+      scanf ("%lf", &yylval);
+      return NUM;
+    }
+  /* Return end-of-input.  */
+  /* 返回输入结束 */
+  if (c == EOF)
+    return 0;
+  /* Return a single char.  */
+  /* 返回一个单一字符 */
+  return c;
 }
 
-main ()
-{
-  yyparse ();
+int main (void) {
+  return yyparse ();
 }
