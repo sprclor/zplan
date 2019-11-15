@@ -9,7 +9,7 @@ void unrecognized_char(char c);
 
 /* note \042 is '"' */
 
-OPERATOR		([+-*/()=,;])
+OPERATOR		([-/+*()=,;])
 INTEGER			([0-9]+)
 STRING			(\042[^\042\n]*\042)
 IDENTIFIER		([_a-zA-Z][_a-zA-Z0-9]*)
@@ -23,7 +23,7 @@ WHITESPACE		([ \t]*)
 
 {INTEGER}		{ _DUPTEXT; return T_IntConstant; }
 {STRING}		{ _DUPTEXT; return T_StringConstant; }
-{IDENTIFIER}	{ _DUPTEXT; return T_IDENTIFIER; }
+{IDENTIFIER}	{ _DUPTEXT; return T_Identifier; }
 
 {WHITESPACE}	{ /* ignore every whitespace */ }
 \n				{ cur_line++; }
@@ -31,7 +31,7 @@ WHITESPACE		([ \t]*)
 
 %%
 
-int yywarp(void) {
+int yywrap(void) {
 	return 1;
 }
 
@@ -42,6 +42,6 @@ void unrecognized_char(char c) {
 }
 
 void yyerror(const char *msg) {
-	prinf("Error at line %dL:\n\t%s\n", cur_line, msg);
+	printf("Error at line %dL:\n\t%s\n", cur_line, msg);
 	exit(-1);
 }

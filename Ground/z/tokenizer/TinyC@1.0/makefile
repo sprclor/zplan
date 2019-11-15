@@ -15,7 +15,7 @@ build: $(OUT)
 test: $(TESTOUT)
 
 simulate: $(TESTOUT)
-	python2 pysim4.py $<
+	python2 pysim4.py $< -a
 
 clean:
 	rm -f *.o $(OUTFILES)
