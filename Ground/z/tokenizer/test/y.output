@@ -1,4 +1,4 @@
-Grammar
+语法
 
     0 $accept: S $end
 
@@ -17,7 +17,7 @@ Grammar
    11  | '(' E ')'
 
 
-Terminals, with rules where they appear
+终结语词，附有它们出现处的规则
 
     $end (0) 0
     '(' (40) 11
@@ -34,7 +34,7 @@ Terminals, with rules where they appear
     U_neg (260)
 
 
-Nonterminals, with rules where they appear
+非终结语词，附有它们出现处的规则
 
     $accept (14)
         on left: 0
@@ -49,106 +49,106 @@ Nonterminals, with rules where they appear
         on right: 3 4 5 6 7 8 11
 
 
-State 0
+状态 0
 
     0 $accept: . S $end
 
-    T_Identifier  shift, and go to state 1
+    T_Identifier  偏移，并进入状态 1
 
-    S     go to state 2
-    Stmt  go to state 3
+    S     转到状态 2
+    Stmt  转到状态 3
 
 
-State 1
+状态 1
 
     3 Stmt: T_Identifier . '=' E ';'
 
-    '='  shift, and go to state 4
+    '='  偏移，并进入状态 4
 
 
-State 2
+状态 2
 
     0 $accept: S . $end
     2 S: S . Stmt
 
-    $end          shift, and go to state 5
-    T_Identifier  shift, and go to state 1
+    $end          偏移，并进入状态 5
+    T_Identifier  偏移，并进入状态 1
 
-    Stmt  go to state 6
+    Stmt  转到状态 6
 
 
-State 3
+状态 3
 
     1 S: Stmt .
 
-    $default  reduce using rule 1 (S)
+    $default  使用规则 1 以归约 (S)
 
 
-State 4
+状态 4
 
     3 Stmt: T_Identifier '=' . E ';'
 
-    T_IntConstant  shift, and go to state 7
-    T_Identifier   shift, and go to state 8
-    '-'            shift, and go to state 9
-    '('            shift, and go to state 10
+    T_IntConstant  偏移，并进入状态 7
+    T_Identifier   偏移，并进入状态 8
+    '-'            偏移，并进入状态 9
+    '('            偏移，并进入状态 10
 
-    E  go to state 11
+    E  转到状态 11
 
 
-State 5
+状态 5
 
     0 $accept: S $end .
 
-    $default  accept
+    $default  接受
 
 
-State 6
+状态 6
 
     2 S: S Stmt .
 
-    $default  reduce using rule 2 (S)
+    $default  使用规则 2 以归约 (S)
 
 
-State 7
+状态 7
 
     9 E: T_IntConstant .
 
-    $default  reduce using rule 9 (E)
+    $default  使用规则 9 以归约 (E)
 
 
-State 8
+状态 8
 
    10 E: T_Identifier .
 
-    $default  reduce using rule 10 (E)
+    $default  使用规则 10 以归约 (E)
 
 
-State 9
+状态 9
 
     8 E: '-' . E
 
-    T_IntConstant  shift, and go to state 7
-    T_Identifier   shift, and go to state 8
-    '-'            shift, and go to state 9
-    '('            shift, and go to state 10
+    T_IntConstant  偏移，并进入状态 7
+    T_Identifier   偏移，并进入状态 8
+    '-'            偏移，并进入状态 9
+    '('            偏移，并进入状态 10
 
-    E  go to state 12
+    E  转到状态 12
 
 
-State 10
+状态 10
 
    11 E: '(' . E ')'
 
-    T_IntConstant  shift, and go to state 7
-    T_Identifier   shift, and go to state 8
-    '-'            shift, and go to state 9
-    '('            shift, and go to state 10
+    T_IntConstant  偏移，并进入状态 7
+    T_Identifier   偏移，并进入状态 8
+    '-'            偏移，并进入状态 9
+    '('            偏移，并进入状态 10
 
-    E  go to state 13
+    E  转到状态 13
 
 
-State 11
+状态 11
 
     3 Stmt: T_Identifier '=' E . ';'
     4 E: E . '+' E
@@ -156,14 +156,14 @@ State 11
     6  | E . '*' E
     7  | E . '/' E
 
-    '+'  shift, and go to state 14
-    '-'  shift, and go to state 15
-    '*'  shift, and go to state 16
-    '/'  shift, and go to state 17
-    ';'  shift, and go to state 18
+    '+'  偏移，并进入状态 14
+    '-'  偏移，并进入状态 15
+    '*'  偏移，并进入状态 16
+    '/'  偏移，并进入状态 17
+    ';'  偏移，并进入状态 18
 
 
-State 12
+状态 12
 
     4 E: E . '+' E
     5  | E . '-' E
@@ -171,10 +171,10 @@ State 12
     7  | E . '/' E
     8  | '-' E .
 
-    $default  reduce using rule 8 (E)
+    $default  使用规则 8 以归约 (E)
 
 
-State 13
+状态 13
 
     4 E: E . '+' E
     5  | E . '-' E
@@ -182,76 +182,76 @@ State 13
     7  | E . '/' E
    11  | '(' E . ')'
 
-    '+'  shift, and go to state 14
-    '-'  shift, and go to state 15
-    '*'  shift, and go to state 16
-    '/'  shift, and go to state 17
-    ')'  shift, and go to state 19
+    '+'  偏移，并进入状态 14
+    '-'  偏移，并进入状态 15
+    '*'  偏移，并进入状态 16
+    '/'  偏移，并进入状态 17
+    ')'  偏移，并进入状态 19
 
 
-State 14
+状态 14
 
     4 E: E '+' . E
 
-    T_IntConstant  shift, and go to state 7
-    T_Identifier   shift, and go to state 8
-    '-'            shift, and go to state 9
-    '('            shift, and go to state 10
+    T_IntConstant  偏移，并进入状态 7
+    T_Identifier   偏移，并进入状态 8
+    '-'            偏移，并进入状态 9
+    '('            偏移，并进入状态 10
 
-    E  go to state 20
+    E  转到状态 20
 
 
-State 15
+状态 15
 
     5 E: E '-' . E
 
-    T_IntConstant  shift, and go to state 7
-    T_Identifier   shift, and go to state 8
-    '-'            shift, and go to state 9
-    '('            shift, and go to state 10
+    T_IntConstant  偏移，并进入状态 7
+    T_Identifier   偏移，并进入状态 8
+    '-'            偏移，并进入状态 9
+    '('            偏移，并进入状态 10
 
-    E  go to state 21
+    E  转到状态 21
 
 
-State 16
+状态 16
 
     6 E: E '*' . E
 
-    T_IntConstant  shift, and go to state 7
-    T_Identifier   shift, and go to state 8
-    '-'            shift, and go to state 9
-    '('            shift, and go to state 10
+    T_IntConstant  偏移，并进入状态 7
+    T_Identifier   偏移，并进入状态 8
+    '-'            偏移，并进入状态 9
+    '('            偏移，并进入状态 10
 
-    E  go to state 22
+    E  转到状态 22
 
 
-State 17
+状态 17
 
     7 E: E '/' . E
 
-    T_IntConstant  shift, and go to state 7
-    T_Identifier   shift, and go to state 8
-    '-'            shift, and go to state 9
-    '('            shift, and go to state 10
+    T_IntConstant  偏移，并进入状态 7
+    T_Identifier   偏移，并进入状态 8
+    '-'            偏移，并进入状态 9
+    '('            偏移，并进入状态 10
 
-    E  go to state 23
+    E  转到状态 23
 
 
-State 18
+状态 18
 
     3 Stmt: T_Identifier '=' E ';' .
 
-    $default  reduce using rule 3 (Stmt)
+    $default  使用规则 3 以归约 (Stmt)
 
 
-State 19
+状态 19
 
    11 E: '(' E ')' .
 
-    $default  reduce using rule 11 (E)
+    $default  使用规则 11 以归约 (E)
 
 
-State 20
+状态 20
 
     4 E: E . '+' E
     4  | E '+' E .
@@ -259,13 +259,13 @@ State 20
     6  | E . '*' E
     7  | E . '/' E
 
-    '*'  shift, and go to state 16
-    '/'  shift, and go to state 17
+    '*'  偏移，并进入状态 16
+    '/'  偏移，并进入状态 17
 
-    $default  reduce using rule 4 (E)
+    $default  使用规则 4 以归约 (E)
 
 
-State 21
+状态 21
 
     4 E: E . '+' E
     5  | E . '-' E
@@ -273,13 +273,13 @@ State 21
     6  | E . '*' E
     7  | E . '/' E
 
-    '*'  shift, and go to state 16
-    '/'  shift, and go to state 17
+    '*'  偏移，并进入状态 16
+    '/'  偏移，并进入状态 17
 
-    $default  reduce using rule 5 (E)
+    $default  使用规则 5 以归约 (E)
 
 
-State 22
+状态 22
 
     4 E: E . '+' E
     5  | E . '-' E
@@ -287,10 +287,10 @@ State 22
     6  | E '*' E .
     7  | E . '/' E
 
-    $default  reduce using rule 6 (E)
+    $default  使用规则 6 以归约 (E)
 
 
-State 23
+状态 23
 
     4 E: E . '+' E
     5  | E . '-' E
@@ -298,4 +298,4 @@ State 23
     7  | E . '/' E
     7  | E '/' E .
 
-    $default  reduce using rule 7 (E)
+    $default  使用规则 7 以归约 (E)
