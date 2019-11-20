@@ -1,37 +1,14 @@
 %{
-#include <stdio.h>
-#include <stdlib.h>
-void yyerror(const char*);
-#define YYSTYPE char *
+void yyerror(const char *);
+extern "C" int yylex();
+extern "C" FILE *yyin;
 %}
 
-%token T_IntConstant T_Identifier
+%parse-param { int *space_count }
+%parse-param { int *word_count }
 
-%left '+' '-'
-%left '*' '/'
-%right U_neg
-
-%%
-
-S   :   Stmt
-    |   S Stmt
-    ;
-
-Stmt:   T_Identifier '=' E ';'  { printf("pop %s\n\n", $1); }
-    ;
-
-E   :   E '+' E                 { printf("add\n"); }
-    |   E '-' E                 { printf("sub\n"); }
-    |   E '*' E                 { printf("mul\n"); }
-    |   E '/' E                 { printf("div\n"); }
-    |   '-' E %prec U_neg       { printf("neg\n"); }
-    |   T_IntConstant           { printf("push %s\n", $1); }
-    |   T_Identifier            { printf("push %s\n", $1); }
-    |   '(' E ')'               { /* empty */ }
-    ;
+%token T_SPACE T_WORD
 
 %%
 
-int main() {
-    return yyparse();
-}
+%%
