@@ -4,7 +4,7 @@
 
 ```
 stroke Boundry { left right top bottom }
-type Margin * Boundry Distance
+type Margin - Boundry Distance
 type Border - Boundry {
 	width	Distance
 	style	&.Style
@@ -12,14 +12,19 @@ type Border - Boundry {
 }
 
 type SizingBox {
-	padding - Boundry Distance
-	margin
-	bound	- Rectangle Distance
+    padding - Boundry	Distance
+    margin
+	bound - Rectangle	Distance
 }
 
 stroke AxisX { left right center }
 stroke AxisY { top bottom center }
-stroke OctaveDirection - AxisX * AxisY
-stroke OctaveDirection2 - AxisX + AxisY
-type Fillet - AxisX * AxisY Distance
+stroke OctaveAxis < AxisX *+ AxisY >
+stroke AslantAxis < AxisX * AxisY >
+stroke MainAxis < AxisX + AxisY >
+type Fillet < OctaveAxis > Distance {
+	( ) {
+	
+	}
+}
 ```
